@@ -10,7 +10,7 @@ jobs:
         - run: python HelloWorld.py
   Build:
     needs : [CheckRun]
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:  
        - uses: actions/checkout@v4
        - uses: actions/upload-artifact@v4
