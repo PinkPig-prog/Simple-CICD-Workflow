@@ -1,0 +1,20 @@
+name : Checking Code
+
+on : [push]
+
+jobs:
+  CheckRun:
+    runs-on: ubuntu-latest
+    steps:
+        - uses: actions/checkout@v4
+        - run: python HelloWorld.py
+  Build:
+    needs : [CheckRun]
+    runs-on: windows-latest
+    steps:  
+       - uses: actions/checkout@v4
+       - uses: actions/upload-artifact@v4
+         with:
+           name: hello
+           path: .
+  
